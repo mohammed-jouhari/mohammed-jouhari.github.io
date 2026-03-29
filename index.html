@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed JOUHARI — Researcher & Educator</title>
+  <meta name="description" content="Personal academic webpage of Dr. Mohammed Jouhari — Assistant Professor at Ibn Tofail University, researcher in Cybersecurity, IoT, and AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FCFCFB;
+      --bg-alt: #F5F4F0;
+      --bg-dark: #0C1222;
+      --bg-dark-alt: #131A2E;
+      --text: #1B1B1B;
+      --text-light: #6B6B6B;
+      --text-on-dark: #E8E6E1;
+      --text-on-dark-muted: #B8B8B6;
+      --accent: #C5963A;
+      --accent-light: #D4A94E;
+      --accent-bg: rgba(197,150,58,0.08);
+      --accent-bg-dark: rgba(197,150,58,0.12);
+      --border: #E4E2DD;
+      --border-dark: rgba(255,255,255,0.08);
+      --white: #FFFFFF;
+      --radius: 8px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(12,18,34,0.95);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 1.2rem; color: var(--white);
+      text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-on-dark-muted);
+      font-size: 0.82rem; font-weight: 500; padding: 7px 14px;
+      border-radius: 6px; transition: all 0.2s;
+      letter-spacing: 0.02em; text-transform: uppercase;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px;
+    }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 32px; height: 32px; flex-direction: column;
+      align-items: center; justify-content: center; gap: 5px;
+    }
+    .hamburger span {
+      display: block; width: 20px; height: 1.5px;
+      background: var(--white); border-radius: 2px; transition: all 0.3s;
+    }
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 80px 28px 60px;
+      background: var(--bg-dark);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute;
+      top: -40%; right: -10%; width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(197,150,58,0.07) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute;
+      bottom: -30%; left: -5%; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(197,150,58,0.04) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1120px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 280px; gap: 80px;
+      align-items: center; position: relative; z-index: 1;
+    }
+    .hero-label {
+      font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--accent); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-label::before {
+      content: ''; width: 32px; height: 1px; background: var(--accent);
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4rem);
+      font-weight: 700; line-height: 1.08;
+      letter-spacing: -0.03em; margin-bottom: 20px;
+      color: var(--white);
+    }
+    .hero-text h1 em {
+      font-style: italic; color: var(--accent); font-weight: 500;
+    }
+    .hero-subtitle {
+      font-size: 1.05rem; color: var(--text-on-dark-muted);
+      margin-bottom: 10px; font-weight: 400; line-height: 1.6;
+      max-width: 520px;
+    }
+    .hero-affiliation {
+      font-size: 0.88rem; color: var(--text-on-dark-muted);
+      margin-bottom: 36px; opacity: 0.7;
+    }
+    .hero-stats {
+      display: flex; gap: 40px; margin-bottom: 40px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.68rem; color: var(--text-on-dark-muted);
+      margin-top: 4px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 24px; border-radius: 6px;
+      font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; transition: all 0.25s;
+      border: none; cursor: pointer;
+      letter-spacing: 0.03em; text-transform: uppercase;
+    }
+    .btn-primary { background: var(--accent); color: var(--bg-dark); }
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(197,150,58,0.25);
+    }
+    .btn-outline { border: 1.5px solid var(--border-dark); color: var(--text-on-dark-muted); background: transparent; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-photo { position: relative; }
+    .hero-photo img {
+      width: 100%; max-width: 280px;
+      border-radius: 12px; object-fit: cover;
+      border: 1px solid var(--border-dark);
+    }
+    .photo-placeholder {
+      width: 280px; height: 340px;
+      border-radius: 12px; background: var(--bg-dark-alt);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-on-dark-muted); font-size: 0.82rem; text-align: center;
+      padding: 20px; border: 1px dashed rgba(255,255,255,0.12);
+      line-height: 1.5;
+    }
+    section { padding: 96px 28px; }
+    .section-dark { background: var(--bg-dark); color: var(--text-on-dark); }
+    .section-light { background: var(--bg); }
+    .section-alt { background: var(--bg-alt); }
+    .container { max-width: 1120px; margin: 0 auto; }
+    .section-header { margin-bottom: 56px; }
+    .section-label {
+      font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--accent); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before {
+      content: ''; width: 24px; height: 1px; background: var(--accent);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.15;
+    }
+    .section-dark .section-title { color: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; }
+    .about-text p { margin-bottom: 18px; color: var(--text-light); font-size: 0.98rem; line-height: 1.8; }
+    .about-text strong { color: var(--text); font-weight: 600; }
+    .about-details {
+      background: var(--bg-alt); border-radius: var(--radius);
+      padding: 32px; border: 1px solid var(--border);
+    }
+    .detail-item { padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .detail-item:last-child { border-bottom: none; }
+    .detail-label {
+      font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent); margin-bottom: 3px;
+    }
+    .detail-value { font-size: 0.9rem; font-weight: 500; }
+    .detail-value a { color: var(--accent); text-decoration: none; }
+    .detail-value a:hover { text-decoration: underline; }
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--border-dark);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 32px;
+      padding: 28px 32px; background: var(--bg-dark-alt);
+      border-radius: var(--radius); border: 1px solid var(--border-dark);
+      transition: border-color 0.3s;
+    }
+    .timeline-item:hover { border-color: rgba(197,150,58,0.25); }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -37px; top: 32px;
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    }
+    .timeline-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: var(--accent); font-weight: 500;
+      margin-bottom: 6px; letter-spacing: 0.04em;
+    }
+    .timeline-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 600; color: var(--white); margin-bottom: 2px;
+    }
+    .timeline-org { font-size: 0.88rem; color: var(--text-on-dark-muted); margin-bottom: 12px; }
+    .timeline-desc { font-size: 0.85rem; color: var(--text-on-dark-muted); line-height: 1.7; }
+    .pub-type {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--accent);
+      margin-bottom: 20px; margin-top: 40px;
+    }
+    .pub-type:first-of-type { margin-top: 0; }
+    .pub-card {
+      padding: 22px 28px; background: var(--bg-alt);
+      border-radius: var(--radius); border: 1px solid var(--border);
+      margin-bottom: 10px; transition: all 0.3s;
+      display: grid; grid-template-columns: 40px 1fr; gap: 18px; align-items: start;
+    }
+    .pub-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .pub-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--accent-bg); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; font-weight: 600; flex-shrink: 0;
+      border: 1px solid rgba(197,150,58,0.15);
+    }
+    .pub-title { font-size: 0.92rem; font-weight: 600; line-height: 1.5; margin-bottom: 6px; }
+    .pub-authors { font-size: 0.8rem; color: var(--text-light); margin-bottom: 3px; }
+    .pub-venue { font-size: 0.8rem; color: var(--text-light); font-style: italic; }
+    .pub-if {
+      display: inline-block; margin-top: 8px;
+      font-size: 0.68rem; font-weight: 700;
+      background: var(--accent); color: var(--bg-dark);
+      padding: 2px 12px; border-radius: 20px; letter-spacing: 0.02em;
+    }
+    .teaching-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px;
+    }
+    .teach-card {
+      padding: 22px 24px; background: var(--bg-dark-alt);
+      border-radius: var(--radius); border: 1px solid var(--border-dark);
+      transition: border-color 0.3s;
+    }
+    .teach-card:hover { border-color: rgba(197,150,58,0.25); }
+    .teach-name { font-weight: 600; font-size: 0.92rem; margin-bottom: 4px; color: var(--white); }
+    .teach-meta { font-size: 0.8rem; color: var(--text-on-dark-muted); }
+    .teach-hours {
+      display: inline-block; margin-top: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; font-weight: 500;
+      background: var(--accent-bg-dark); color: var(--accent);
+      padding: 3px 12px; border-radius: 20px;
+      border: 1px solid rgba(197,150,58,0.15);
+    }
+    .service-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;
+    }
+    .service-card {
+      padding: 28px; background: var(--bg-alt);
+      border-radius: var(--radius); border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    .service-card:hover { border-color: var(--accent); }
+    .service-icon {
+      font-size: 1.4rem; margin-bottom: 16px;
+      width: 44px; height: 44px;
+      background: var(--accent-bg); border: 1px solid rgba(197,150,58,0.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600; font-size: 1.02rem; margin-bottom: 10px;
+    }
+    .service-desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .contact-text p { color: var(--text-on-dark-muted); margin-bottom: 28px; font-size: 0.95rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 16px;
+      text-decoration: none; color: var(--text-on-dark);
+      padding: 16px 20px; background: var(--bg-dark-alt);
+      border-radius: var(--radius); border: 1px solid var(--border-dark);
+      transition: all 0.25s; font-size: 0.9rem;
+    }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+    .contact-link-icon {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: var(--accent-bg-dark); color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; flex-shrink: 0;
+      border: 1px solid rgba(197,150,58,0.12);
+    }
+    .contact-map {
+      background: var(--bg-dark-alt); border-radius: var(--radius);
+      border: 1px solid var(--border-dark); overflow: hidden; height: 320px;
+    }
+    .contact-map iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.8) brightness(0.7) contrast(1.1); }
+    footer {
+      padding: 36px 28px; background: var(--bg-dark);
+      border-top: 1px solid var(--border-dark);
+      text-align: center; font-size: 0.78rem; color: var(--text-on-dark-muted);
+    }
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; transition: none; }
+      .pub-card, .timeline-item, .teach-card, .service-card, .contact-link { transition: none; }
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+      .hero-photo { order: -1; display: flex; justify-content: center; }
+      .hero-photo img, .photo-placeholder { max-width: 180px; width: 180px; height: 220px; }
+      .hero-stats { justify-content: center; gap: 24px; }
+      .hero-links { justify-content: center; }
+      .hero-label { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links {
+        display: none; position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--bg-dark); flex-direction: column;
+        padding: 16px 28px; border-bottom: 1px solid var(--border-dark);
+      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .teaching-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr; }
+      .timeline { padding-left: 32px; }
+    }
+  </style>
+</head>
+<body>
+<a href="#about" class="skip-link" style="position:absolute;top:-100%;left:16px;padding:8px 16px;background:var(--accent);color:var(--bg-dark);border-radius:0 0 6px 6px;font-size:0.85rem;font-weight:600;z-index:200;text-decoration:none;transition:top 0.2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100%'">Skip to content</a>
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">M<span>.</span>J</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Career</a>
+      <a href="#publications">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#service">Service</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-label">Researcher &amp; Educator</div>
+      <h1>Mohammed<br><em>Jouhari</em></h1>
+      <p class="hero-subtitle">Assistant Professor in Computer Science specializing in cybersecurity, IoT, and artificial intelligence for networked systems.</p>
+      <p class="hero-affiliation">Faculty of Sciences — Ibn Tofail University, Kenitra, Morocco</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">1156</div>
+          <div class="stat-label">Citations</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">14</div>
+          <div class="stat-label">h-index</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">16</div>
+          <div class="stat-label">Publications</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">55+</div>
+          <div class="stat-label">Reviews</div>
+        </div>
+      </div>
+      <div class="hero-links">
+        <a href="mailto:mohammed.jouhari1@uit.ac.ma" class="btn btn-primary">Get in Touch</a>
+        <a href="#publications" class="btn btn-outline">View Research</a>
+        <a href="https://scholar.google.com/" class="btn btn-outline" target="_blank">Scholar</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=57189074563" class="btn btn-outline" target="_blank">Scopus</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="photo.jpg" alt="Mohammed Jouhari">
+    </div>
+  </div>
+</section>
+
+<section class="section-light" id="about">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Background &amp; Research</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am an Assistant Professor in Computer Science at the Faculty of Sciences, Ibn Tofail University in Kenitra, Morocco. My research sits at the intersection of <strong>cybersecurity</strong>, <strong>artificial intelligence</strong>, and the <strong>Internet of Things</strong>.</p>
+        <p>I obtained my PhD from Ibn Tofail University in 2019, focusing on underwater wireless sensor networks — MAC layer optimization, topology control, and geographic routing. I then held postdoctoral positions at Qatar University and Mohammed VI Polytechnic University (UM6P), working on AI-driven surveillance and energy-efficient IoT networks.</p>
+        <p>My current work targets intrusion detection systems for IoT using deep learning, federated learning for industrial cybersecurity, and scalable LoRaWAN architectures. I contribute actively to the community through editorial service, peer review (55+ for IEEE journals), and TPC membership at major IEEE conferences.</p>
+      </div>
+      <div class="about-details">
+        <div class="detail-item"><div class="detail-label">Position</div><div class="detail-value">Assistant Professor</div></div>
+        <div class="detail-item"><div class="detail-label">Institution</div><div class="detail-value">Ibn Tofail University</div></div>
+        <div class="detail-item"><div class="detail-label">PhD</div><div class="detail-value">Mathematics, CS &amp; Applications (2019)</div></div>
+        <div class="detail-item"><div class="detail-label">Research</div><div class="detail-value">Cybersecurity · IoT · AI/ML · Sensor Networks</div></div>
+        <div class="detail-item"><div class="detail-label">ORCID</div><div class="detail-value"><a href="https://orcid.org/0000-0001-5406-8594" target="_blank">0000-0001-5406-8594</a></div></div>
+        <div class="detail-item"><div class="detail-label">Scopus</div><div class="detail-value"><a href="https://www.scopus.com/authid/detail.uri?authorId=57189074563" target="_blank">57189074563</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="experience">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-label">Career</div>
+      <h2 class="section-title">Professional Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">2024 — Present</div>
+        <div class="timeline-title">Assistant Professor</div>
+        <div class="timeline-org">Faculty of Sciences, Ibn Tofail University, Kenitra</div>
+        <div class="timeline-desc">Teaching cybersecurity, distributed systems, and intelligent networks. Supervising Master's and doctoral research. Co-organizer of scientific events and workshops.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2023 — 2024</div>
+        <div class="timeline-title">Assistant Professor</div>
+        <div class="timeline-org">EMSI, Tangier</div>
+        <div class="timeline-desc">Courses on Unix systems, application security, and virtualization. Supervised final-year projects and contributed to curriculum development.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2021 — 2023</div>
+        <div class="timeline-title">Postdoctoral Researcher</div>
+        <div class="timeline-org">Mohammed VI Polytechnic University (UM6P)</div>
+        <div class="timeline-desc">Machine learning for energy-efficient IoT and sensor networks. Published in indexed journals and collaborated with international teams.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2020 — 2021</div>
+        <div class="timeline-title">Postdoctoral Researcher</div>
+        <div class="timeline-org">Qatar University</div>
+        <div class="timeline-desc">AI-based methods for drones and intelligent surveillance. Coordinated funded projects and supervised Master's students.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2017 — 2020</div>
+        <div class="timeline-title">Adjunct Lecturer</div>
+        <div class="timeline-org">Ibn Tofail University, Kenitra</div>
+        <div class="timeline-desc">Data security, VoIP, and IPv6 courses. Research on underwater wireless sensor networks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light" id="publications">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-label">Research Output</div>
+      <h2 class="section-title">Selected Publications</h2>
+    </div>
+    <div class="pub-type">Journal Articles</div>
+    <div class="pub-card">
+      <div class="pub-num">J1</div>
+      <div class="pub-content">
+        <div class="pub-title">A lightweight hybrid approach for intrusion detection systems using a chi-square feature selection approach in IoT</div>
+        <div class="pub-authors">H. Benaddi, M. Jouhari, O. Elharrouss</div>
+        <div class="pub-venue">Internet of Things, vol. 32, 2025</div>
+        <span class="pub-if">IF 7.6</span>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">J2</div>
+      <div class="pub-content">
+        <div class="pub-title">A survey on scalable LoRaWAN for massive IoT: Recent advances, potentials, and challenges</div>
+        <div class="pub-authors">M. Jouhari, E.M. Amhoud, N. Saeed, M.-S. Alouini</div>
+        <div class="pub-venue">IEEE Communications Surveys &amp; Tutorials, vol. 25, no. 3, 2022</div>
+        <span class="pub-if">IF 33.84</span>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">J3</div>
+      <div class="pub-content">
+        <div class="pub-title">Anomaly detection in industrial IoT using distributional reinforcement learning and GANs</div>
+        <div class="pub-authors">H. Benaddi, M. Jouhari, K. Ibrahimi, J.B. Othman, A. Benslimane, E.M. Amhoud</div>
+        <div class="pub-venue">Sensors, vol. 22, no. 21, 2022</div>
+        <span class="pub-if">IF 3.847</span>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">J4</div>
+      <div class="pub-content">
+        <div class="pub-title">Robust enhancement of intrusion detection systems using deep reinforcement learning and stochastic game approaches</div>
+        <div class="pub-authors">H. Benaddi, K. Ibrahimi, A. Benslimane, M. Jouhari, J. Qadir</div>
+        <div class="pub-venue">IEEE Trans. on Vehicular Technology, vol. 71, no. 10, 2022</div>
+        <span class="pub-if">IF 5.978</span>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">J5</div>
+      <div class="pub-content">
+        <div class="pub-title">Distributed CNN inference on resource-constrained UAVs for surveillance systems: Design and optimization</div>
+        <div class="pub-authors">M. Jouhari et al.</div>
+        <div class="pub-venue">IEEE Internet of Things Journal, vol. 9, no. 2, 2021</div>
+        <span class="pub-if">IF 9.936</span>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">J6</div>
+      <div class="pub-content">
+        <div class="pub-title">Underwater wireless sensor networks: A survey on enabling technologies, localization protocols, and IoUT</div>
+        <div class="pub-authors">M. Jouhari, K. Ibrahimi, H. Tembine, J. Ben-Othman</div>
+        <div class="pub-venue">IEEE Access, vol. 7, 2019</div>
+        <span class="pub-if">IF 4.098</span>
+      </div>
+    </div>
+    <div class="pub-type">Conference Papers (selected)</div>
+    <div class="pub-card">
+      <div class="pub-num">C1</div>
+      <div class="pub-content">
+        <div class="pub-title">Efficient intrusion detection: Combining χ² feature selection with CNN-BiLSTM on UNSW-NB15</div>
+        <div class="pub-authors">M. Jouhari, H. Benaddi, K. Ibrahimi</div>
+        <div class="pub-venue">IEEE WINCOM 2024</div>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">C2</div>
+      <div class="pub-content">
+        <div class="pub-title">Lightweight CNN-BiLSTM based intrusion detection for resource-constrained IoT devices</div>
+        <div class="pub-authors">M. Jouhari, M. Guizani</div>
+        <div class="pub-venue">IEEE IWCMC, Ayia Napa, Cyprus, 2024</div>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">C3</div>
+      <div class="pub-content">
+        <div class="pub-title">Deep reinforcement learning-based energy efficiency optimization for flying LoRa gateways</div>
+        <div class="pub-authors">M. Jouhari, K. Ibrahimi, J.B. Othman, E.M. Amhoud</div>
+        <div class="pub-venue">IEEE ICC, Rome, Italy, 2023</div>
+      </div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-num">C4</div>
+      <div class="pub-content">
+        <div class="pub-title">Analysis of blockchain selfish mining: A stochastic game approach</div>
+        <div class="pub-authors">B. Jebari, M. Jouhari, K. Ibrahimi</div>
+        <div class="pub-venue">IEEE ICC, Seoul, South Korea, 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="teaching">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-label">Education</div>
+      <h2 class="section-title">Teaching Experience</h2>
+    </div>
+    <div class="teaching-grid">
+      <div class="teach-card"><div class="teach-name">Virtualization &amp; Cloud Computing</div><div class="teach-meta">Master's — Ibn Tofail University (2024/25)</div><span class="teach-hours">32h</span></div>
+      <div class="teach-card"><div class="teach-name">Digital Culture</div><div class="teach-meta">Bachelor's — Faculty of Law, Ibn Tofail (2024/25)</div><span class="teach-hours">24h</span></div>
+      <div class="teach-card"><div class="teach-name">Application Security</div><div class="teach-meta">4th Year — EMSI Tangier (2023/24)</div><span class="teach-hours">32h</span></div>
+      <div class="teach-card"><div class="teach-name">Unix Operating Systems</div><div class="teach-meta">3rd Year — EMSI Tangier (2023/24)</div><span class="teach-hours">32h</span></div>
+      <div class="teach-card"><div class="teach-name">Data Security</div><div class="teach-meta">Master's — Ibn Tofail University (2017–2022)</div><span class="teach-hours">82h total</span></div>
+      <div class="teach-card"><div class="teach-name">Cross-Platform Development</div><div class="teach-meta">5th Year — EMSI Tangier (2023/24)</div><span class="teach-hours">32h</span></div>
+      <div class="teach-card"><div class="teach-name">Information Systems Governance</div><div class="teach-meta">5th Year — EMSI Tangier (2023/24)</div><span class="teach-hours">32h</span></div>
+      <div class="teach-card"><div class="teach-name">VoIP &amp; IPv6</div><div class="teach-meta">Bachelor's — Ibn Tofail University (2017–2022)</div><span class="teach-hours">56h total</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light" id="service">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-label">Community</div>
+      <h2 class="section-title">Scientific Service</h2>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">📰</div>
+        <div class="service-title">Editorial Board</div>
+        <div class="service-desc">Member of Humanities &amp; Social Sciences Communications (Springer Nature) since 2025. Editorial decisions and peer review coordination.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-title">55+ Peer Reviews</div>
+        <div class="service-desc">IEEE IoT Journal (11), IEEE Access (16), IEEE Wireless Communications (3), IEEE Trans. on Communications, TIFS, and more.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <div class="service-title">TPC Member</div>
+        <div class="service-desc">IEEE Globecom (2024–25), ICC, IWCMC (2023–25), WINCOM (2023–25), CommNet (2021–24).</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎤</div>
+        <div class="service-title">Track &amp; Session Chair</div>
+        <div class="service-desc">Workshop on AI-Driven Network Security (EngiTek 2025). Session chair at IEEE IWCMC and WINCOM 2024.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="contact">
+  <div class="container fade-in">
+    <div class="section-header">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-text">
+          <p>Open to research collaborations, joint publications, co-supervision of students, and speaking invitations.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:mohammed.jouhari1@uit.ac.ma" class="contact-link" aria-label="Email: mohammed.jouhari1@uit.ac.ma">
+            <div class="contact-link-icon" aria-hidden="true">✉</div>
+            <div>mohammed.jouhari1@uit.ac.ma</div>
+          </a>
+          <a href="tel:+212652603159" class="contact-link" aria-label="Phone: +212 6 52 60 31 59">
+            <div class="contact-link-icon" aria-hidden="true">☎</div>
+            <div>+212 6 52 60 31 59</div>
+          </a>
+          <a href="https://orcid.org/0000-0001-5406-8594" target="_blank" class="contact-link" aria-label="ORCID profile: 0000-0001-5406-8594">
+            <div class="contact-link-icon" aria-hidden="true">ID</div>
+            <div>ORCID: 0000-0001-5406-8594</div>
+          </a>
+          <!-- REPLACE # with your LinkedIn URL -->
+          <a href="#" class="contact-link" aria-label="LinkedIn profile">
+            <div class="contact-link-icon" aria-hidden="true">in</div>
+            <div>LinkedIn Profile</div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-map">
+        <iframe title="Map showing Ibn Tofail University location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.8!2d-6.58!3d34.26!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda759e80b0f5b23%3A0x4b3f61b8c5a3e3e!2sIbn%20Tofail%20University!5e0!3m2!1sen!2sma!4v1" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer role="contentinfo">© 2025 Mohammed Jouhari — All rights reserved.</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', nav.classList.contains('open'));
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
